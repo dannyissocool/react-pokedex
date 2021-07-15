@@ -3,7 +3,7 @@ import React from 'react';
 const PokemonCard = ({ pokemon }) => {
   return (
     <div>
-      <div className='max-w-lg m-auto rounded overflow-hidden shadow-lg'>
+      <div className='max-w-lg my-5 m-auto rounded overflow-hidden shadow-2xl'>
         <img
           src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
           alt=''

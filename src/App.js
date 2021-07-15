@@ -33,24 +33,26 @@ function App() {
   }, [term]);
 
   return (
-    <div className='container mx-auto '>
+    <div className='container mx-auto'>
       <SearchBar searchPokemon={(text) => setTerm(text)} />
       {!loading && pokemonArray.length === 0 && (
         <h1 className='text-center'>No Results</h1>
       )}
 
-      <div className='grid sm:m-auto sm:grid-cols-1 md:grid-cols-3 gap-4'>
-        {loading ? (
-          <h1 className='text-center'>Loading...</h1>
-        ) : pokemonArray.length === 1 ? (
-          <PokemonCard className='col-span-2' pokemon={pokemonArray[0]} />
-        ) : (
-          pokemonArray.map((individual) => (
+      {loading ? (
+        <h1 className='text-center'>Loading...</h1>
+      ) : pokemonArray.length === 1 ? (
+        <div className='grid sm:m-auto sm:grid-cols-1'>
+          <PokemonCard pokemon={pokemonArray[0]} />
+        </div>
+      ) : (
+        <div className='grid sm:m-auto sm:grid-cols-1 md:grid-cols-3 gap-4'>
+          {pokemonArray.map((individual) => (
             <PokemonCard key={individual.id} pokemon={individual} />
-          ))
-        )}
-        {console.log(pokemonArray)}
-      </div>
+          ))}
+        </div>
+      )}
+      {console.log(pokemonArray)}
     </div>
   );
 }
