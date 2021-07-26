@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon, setPokemon }) => {
   return (
-    <div>
-      <div className='max-w-lg my-5 m-auto rounded overflow-hidden shadow-2xl'>
+    
+      <div onClick={() => {setPokemon([pokemon])}} className='cursor-pointer max-w-lg my-5 m-auto rounded overflow-hidden shadow-2xl'>
         <img
           src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
           alt=''
@@ -25,7 +25,7 @@ const PokemonCard = ({ pokemon }) => {
           ))}
         </div>
       </div>
-    </div>
+    
   );
 };
 
