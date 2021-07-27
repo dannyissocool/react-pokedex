@@ -26,9 +26,8 @@ const SearchBar = ({ searchPokemon, error, setError, pokemonArray, goBack }) => 
       </h1>
       <input
         type='text'
-        className={`w-11/12 mx-auto mb-5 px-2 py-1 text-blue-800 border ${
-         error ? 'border-red-500 border-4' : 'border-blue-500 border-4'
-        }`}
+        className={`w-11/12 mx-auto mb-5 px-2 py-1 text-blue-800 border 
+        ${error ? 'border-red-500 border-8' : 'border-blue-500 border-4'}`}
         placeholder='Ex. Charizard or 6'
         onChange={(e) => setText(e.target.value)}
       />

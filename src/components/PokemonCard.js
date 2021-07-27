@@ -3,11 +3,11 @@ import React from 'react';
 const PokemonCard = ({ pokemon, setPokemon }) => {
   return (
     
-      <div onClick={() => {setPokemon([pokemon])}} className='cursor-pointer max-w-lg my-5 m-auto rounded overflow-hidden shadow-2xl'>
+      <div onClick={() => {setPokemon([pokemon])}} className='cursor-pointer max-w-full rounded overflow-hidden shadow-2xl'>
         <img
           src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
           alt=''
-          className='w-1/2 m-auto'
+          className='w-1/2 m-auto mt-4 '
         />
         <div className='px-6 py-4'>
           <div className='font-bold text-xl mb-2 text-center'>

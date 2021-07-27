@@ -6,7 +6,7 @@ import SearchBar from './components/SearchBar';
 
 function App() {
   const [term, setTerm] = useState('1');
-  const [pokemonArray, setPokemonArray] = useState([]);
+  const [pokemonArray, setPokemonArray] = useState([]);  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -33,11 +33,11 @@ async function getInitialPokemon() {
   setLoading(false);
 }
 
-  // Search API call
+  // Search for single Pokemon
   useEffect(() => {async function getAPokemon(term){
     await axios
       .get(`https://pokeapi.co/api/v2/pokemon/${term}`)
-      .then((res) => setPokemonArray(() => [res.data]), setLoading(false), setError(false))
+      .then((res) => setPokemonArray(() => [res.data]),  setLoading(false), setError(false))
       .catch((err) => {
         console.log(err)
         setError(true)
@@ -58,12 +58,12 @@ async function getInitialPokemon() {
       ) : pokemonArray.length === 1 ? (
         <>
         
-          <div className='grid sm:m-auto sm:grid-cols-1'>
+          <div className='grid sm:m-auto sm:grid-cols-1 sm:w-1/2'>
             <PokemonCard pokemon={pokemonArray[0]} />
           </div>
         </>
       ) : (
-        <div className='grid sm:m-auto sm:grid-cols-1 md:grid-cols-3 gap-4'>
+        <div className='grid m-auto sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4'>
           {pokemonArray.map((individual) => (
             <PokemonCard setPokemon={setPokemonArray} key={individual.id} pokemon={individual} />
           ))}
@@ -71,6 +71,7 @@ async function getInitialPokemon() {
       )}
       
     </div>
+    
   );
 }
 
