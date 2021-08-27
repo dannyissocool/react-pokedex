@@ -5,10 +5,10 @@ const PokemonCard = ({ pokemon, setPokemon }) => {
     
       <div onClick={() => {setPokemon([pokemon])}} className='cursor-pointer max-w-full rounded overflow-hidden shadow-2xl'>
         <img
-          src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
+          src={pokemon.sprites.front_default}
           alt=''
           className='w-1/2 m-auto mt-4 '
-        />
+        />        
         <div className='px-6 py-4'>
           <div className='font-bold text-xl mb-2 text-center'>
             {pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}
